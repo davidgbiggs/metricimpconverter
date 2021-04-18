@@ -38,7 +38,7 @@ function ConvertHandler() {
 
     if (!matches) {
       result = 1;
-    } else if (matches.length >= 3) {
+    } else if (matches.length >= 3 || input.split("/").length > 2) {
       throw new Error("invalid number");
     } else if (matches.length === 2) {
       result = Number.parseFloat(matches[0]) / Number.parseFloat(matches[1]);
@@ -52,7 +52,9 @@ function ConvertHandler() {
   this.getUnit = function (input) {
     let match = input.match(/[A-Za-z]+$/);
     if (this.unitConversions.has(match[0].toLowerCase())) {
-      return match[0];
+      return /^[lL]$/.test(match[0])
+        ? match[0].toUpperCase()
+        : match[0].toLowerCase();
     } else {
       throw new Error("invalid unit");
     }
