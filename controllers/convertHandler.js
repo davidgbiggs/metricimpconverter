@@ -2,7 +2,7 @@ function ConvertHandler() {
   this.unitConversions = new Map();
 
   this.unitConversions.set("gal", {
-    conversion: "l",
+    conversion: "L",
     spelledOut: "gallons",
     conversionRatio: 3.78541,
   });

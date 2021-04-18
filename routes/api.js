@@ -39,12 +39,12 @@ module.exports = function (app) {
       if (error.message === "invalid unit") {
         try {
           convertHandler.getNum(input);
-          res.send(error.message);
+          res.send("invalid unit");
         } catch (secondError) {
           res.send("invalid number and unit");
         }
       } else {
-        res.send(error.message);
+        res.send("invalid number");
       }
     }
   });
