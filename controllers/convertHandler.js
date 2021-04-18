@@ -72,7 +72,8 @@ function ConvertHandler() {
 
   this.convert = function (initNum, initUnit) {
     const conversionRatio = this.unitConversions.get(initUnit).conversionRatio;
-    return parseFloat(initNum * conversionRatio).toFixed(5);
+    const float = parseFloat(initNum * conversionRatio);
+    return +float.toFixed(5);
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
