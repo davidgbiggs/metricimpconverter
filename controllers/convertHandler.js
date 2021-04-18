@@ -24,12 +24,12 @@ function ConvertHandler() {
   this.unitConversions.set("lbs", {
     conversion: "kg",
     spelledOut: "pounds",
-    conversionRatio: 0.453592,
+    conversionRatio: 0.45359,
   });
   this.unitConversions.set("kg", {
     conversion: "lbs",
     spelledOut: "kilograms",
-    conversionRatio: 2.20462,
+    conversionRatio: 2.20463,
   });
 
   this.getNum = function (input) {
@@ -73,7 +73,7 @@ function ConvertHandler() {
   this.convert = function (initNum, initUnit) {
     const conversionRatio = this.unitConversions.get(initUnit).conversionRatio;
     const float = parseFloat(initNum * conversionRatio);
-    return +float.toFixed(5);
+    return float.toFixed(5);
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
