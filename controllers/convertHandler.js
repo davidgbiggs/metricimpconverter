@@ -46,7 +46,7 @@ function ConvertHandler() {
       result = Number.parseFloat(matches[0]);
     }
 
-    return Number.parseFloat(result);
+    return +Number.parseFloat(result).toFixed(5);
   };
 
   this.getUnit = function (input) {
