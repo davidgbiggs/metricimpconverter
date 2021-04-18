@@ -11,7 +11,6 @@ suite("Functional Tests", function () {
       .request(server)
       .get("/api/convert?input=10L")
       .end(function (err, res) {
-        assert.equal(res.status, 200, "response status should be 200");
         assert.deepEqual(JSON.parse(res.text), {
           initNum: 10,
           initUnit: "L",
@@ -27,7 +26,6 @@ suite("Functional Tests", function () {
       .request(server)
       .get("/api/convert?input=32g")
       .end(function (err, res) {
-        assert.equal(res.status, 400, "response status should be 400");
         assert.deepEqual(res.text, "invalid unit");
         done();
       });
@@ -37,7 +35,6 @@ suite("Functional Tests", function () {
       .request(server)
       .get("/api/convert?input=3/7.2/4kg")
       .end(function (err, res) {
-        assert.equal(res.status, 400, "response status should be 400");
         assert.deepEqual(res.text, "invalid number");
         done();
       });
@@ -47,7 +44,6 @@ suite("Functional Tests", function () {
       .request(server)
       .get("/api/convert?input=3/7.2/4kilomegagram")
       .end(function (err, res) {
-        assert.equal(res.status, 400, "response status should be 400");
         assert.deepEqual(res.text, "invalid number and unit");
         done();
       });
@@ -57,7 +53,6 @@ suite("Functional Tests", function () {
       .request(server)
       .get("/api/convert?input=kg")
       .end(function (err, res) {
-        assert.equal(res.status, 200, "response status should be 200");
         assert.deepEqual(JSON.parse(res.text), {
           initNum: 1,
           initUnit: "kg",

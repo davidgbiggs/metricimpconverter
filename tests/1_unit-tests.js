@@ -38,43 +38,75 @@ describe("Unit Tests", function () {
     });
   });
   describe("getReturnUnit", function () {
-    it("should return the correct return unit for mi.", function () {
+    it("should return the correct return unit for each valid input unit.", function () {
       assert.equal(convertHandler.getReturnUnit("mi"), "km");
-    });
-    it("should return the correct return unit for km.", function () {
-      assert.equal(convertHandler.getReturnUnit("km"), "mi");
-    });
-    it("should return the correct return unit for gal.", function () {
-      assert.equal(convertHandler.getReturnUnit("gal"), "L");
-    });
-    it("should return the correct return unit for L.", function () {
-      assert.equal(convertHandler.getReturnUnit("L"), "gal");
-    });
-    it("should return the correct return unit for lbs.", function () {
-      assert.equal(convertHandler.getReturnUnit("lbs"), "kg");
-    });
-    it("should return the correct return unit for kg.", function () {
-      assert.equal(convertHandler.getReturnUnit("kg"), "lbs");
     });
   });
   describe("spellOutUnit", function () {
     it("should correctly return the spelled-out string unit for each valid input unit.", function () {
       assert.equal(convertHandler.spellOutUnit("kg"), "kilograms");
     });
-    it("should correctly return the spelled-out string unit for each valid input unit.", function () {
-      assert.equal(convertHandler.spellOutUnit("lbs"), "pounds");
+  });
+  describe("convert", function () {
+    it("should correctly convert gal to L", function () {
+      //   assert.deepEqual(convertHandler.convert(10, "gal"), {
+      //     initNum: 10,
+      //     initUnit: "gal",
+      //     returnNum: 37.8541,
+      //     returnUnit: "L",
+      //     string: "10 gallons converts to 37.85410 liters",
+      //   });
+      assert.strictEqual(convertHandler.convert(10, "gal"), 37.8541);
     });
-    it("should correctly return the spelled-out string unit for each valid input unit.", function () {
-      assert.equal(convertHandler.spellOutUnit("mi"), "miles");
+    it("should correctly convert L to gal", function () {
+      //   assert.deepEqual(convertHandler.convert(10, "l"), {
+      //     initNum: 10,
+      //     initUnit: "l",
+      //     returnNum: 2.64172,
+      //     returnUnit: "gal",
+      //     string: "10 liters converts to 2.64172 gallons",
+      //   });
+      assert.strictEqual(convertHandler.convert(10, "l"), 2.64172);
     });
-    it("should correctly return the spelled-out string unit for each valid input unit.", function () {
-      assert.equal(convertHandler.spellOutUnit("km"), "kilometers");
+    it("should correctly convert mi to km", function () {
+      //   assert.deepEqual(convertHandler.convert(10, "mi"), {
+      //     initNum: 10,
+      //     initUnit: "mi",
+      //     returnNum: 16.0934,
+      //     returnUnit: "km",
+      //     string: "10 miles converts to 16.09340 kilometers",
+      //   });
+      assert.strictEqual(convertHandler.convert(10, "mi"), 16.0934);
     });
-    it("should correctly return the spelled-out string unit for each valid input unit.", function () {
-      assert.equal(convertHandler.spellOutUnit("L"), "liters");
+    it("should correctly convert km to mi", function () {
+      //   assert.deepEqual(convertHandler.convert(10, "km"), {
+      //     initNum: 10,
+      //     initUnit: "km",
+      //     returnNum: 6.21373,
+      //     returnUnit: "mi",
+      //     string: "10 kilometers converts to 6.21373 miles",
+      //   });
+      assert.strictEqual(convertHandler.convert(10, "km"), 6.21373);
     });
-    it("should correctly return the spelled-out string unit for each valid input unit.", function () {
-      assert.equal(convertHandler.spellOutUnit("gal"), "gallons");
+    it("should correctly convert lbs to kg", function () {
+      //   assert.deepEqual(convertHandler.convert(10, "lbs"), {
+      //     initNum: 10,
+      //     initUnit: "lbs",
+      //     returnNum: 4.53592,
+      //     returnUnit: "kg",
+      //     string: "10 pounds converts to 4.53592 kilograms",
+      //   });
+      assert.strictEqual(convertHandler.convert(10, "lbs"), 4.53592);
+    });
+    it("should correctly convert kg to lbs", function () {
+      //   assert.deepEqual(convertHandler.convert(10, "kg"), {
+      //     initNum: 10,
+      //     initUnit: "kg",
+      //     returnNum: 22.04624,
+      //     returnUnit: "lbs",
+      //     string: "10 kilograms converts to 22.04624 pounds",
+      //   });
+      assert.strictEqual(convertHandler.convert(10, "kg"), 22.04624);
     });
   });
 });
