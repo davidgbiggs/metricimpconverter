@@ -2,7 +2,7 @@ function ConvertHandler() {
   this.unitConversions = new Map();
 
   this.unitConversions.set("gal", {
-    conversion: "L",
+    conversion: "l",
     spelledOut: "gallons",
     conversionRatio: 3.78541,
   });
@@ -59,15 +59,16 @@ function ConvertHandler() {
   };
 
   this.getReturnUnit = function (initUnit) {
-    return this.unitConversions.get(initUnit).conversion;
+    return this.unitConversions.get(initUnit.toLowerCase()).conversion;
   };
 
   this.spellOutUnit = function (unit) {
-    return this.unitConversions.get(unit).spelledOut;
+    return this.unitConversions.get(unit.toLowerCase()).spelledOut;
   };
 
   this.convert = function (initNum, initUnit) {
-    const conversionRatio = this.unitConversions.get(initUnit).conversionRatio;
+    const conversionRatio = this.unitConversions.get(initUnit.toLowerCase())
+      .conversionRatio;
     const float = parseFloat(initNum * conversionRatio);
     return float.toFixed(5);
   };
