@@ -6,7 +6,7 @@ function ConvertHandler() {
     spelledOut: "gallons",
     conversionRatio: 3.78541,
   });
-  this.unitConversions.set("L", {
+  this.unitConversions.set("l", {
     conversion: "gal",
     spelledOut: "liters",
     conversionRatio: 0.264172,
@@ -19,17 +19,17 @@ function ConvertHandler() {
   this.unitConversions.set("km", {
     conversion: "mi",
     spelledOut: "kilometers",
-    conversionRatio: 0.62137,
+    conversionRatio: 0.621373,
   });
   this.unitConversions.set("lbs", {
     conversion: "kg",
     spelledOut: "pounds",
-    conversionRatio: 0.45359,
+    conversionRatio: 0.453592,
   });
   this.unitConversions.set("kg", {
     conversion: "lbs",
     spelledOut: "kilograms",
-    conversionRatio: 2.20463,
+    conversionRatio: 2.204624,
   });
 
   this.getNum = function (input) {
@@ -51,11 +51,7 @@ function ConvertHandler() {
 
   this.getUnit = function (input) {
     let match = input.match(/[A-Za-z]+$/);
-    if (
-      this.unitConversions.has(
-        match[0] === "L" ? match[0] : match[0].toLowerCase()
-      )
-    ) {
+    if (this.unitConversions.has(match[0].toLowerCase())) {
       return match[0];
     } else {
       throw new Error("invalid unit");
